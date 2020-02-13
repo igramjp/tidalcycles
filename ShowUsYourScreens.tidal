@@ -327,4 +327,18 @@ do
         # size "0.7"
         # shape "0.5"
 
+-- version 0.9 -> 1.0
+-- scale -> range
+-- sine1 -> sine
+-- p: xfade: connection
+p "rhythm" $ sound "bd hc bd cp"
+p "synth" $ sound "ifdrums(5, 8)" # n (irand 12)
+xfade "rhythm" $ sound "bd hc bd cp"
+xfade "rhythm" $ sound "ifdrums(5, 8)" # n (irand 12)
+-- once
+once $ sound "rave"
+-- tempo change
+-- cps(130/120)
+d1 $ sound "cp*4" # cps (130/120)
+
 hush
