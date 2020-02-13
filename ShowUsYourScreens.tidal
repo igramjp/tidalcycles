@@ -1,0 +1,330 @@
+d1 $ sound "bd"
+d1 $ sound "cp"
+d1 $ sound "bd cp"
+d1 $ sound "bd cp bd cp"
+d1 $ sound "glitch:0"
+d1 $ sound "glitch:1"
+d1 $ sound "glitch:2"
+d1 $ sound "glitch:3"
+d1 $ sound "glitch:4"
+d1 $ sound "glitch" # n "0"
+d1 $ sound "glitch" # n "1"
+d1 $ sound "glitch" # n "2"
+d1 $ sound "glitch" # n "3"
+d1 $ sound "glitch" # n "4"
+d1 $ sound "glitch glitch glitch glitch" # n "0 1 2 3"
+d1 $ sound "glitch:0 glitch:1 glitch:2 glitch:3"
+d1 $ sound "supersaw"
+d1 $ sound "supersquare"
+d1 $ sound "superpwm"
+d1 $ sound "superzow"
+d1 $ sound "super808"
+d1 $ sound "supersaw" # sustain "0.1"
+d1 $ sound "supersaw supersaw supersaw supersaw" # sustain "0.1"
+d1 $ sound "supersaw supersaw supersaw supersaw" # sustain "0.1" # n "0 1 2 3"
+d1 $ sound "bd cp bd cp"
+d2 $ sound "hc hc"
+d3 $ sound "arpy"
+d1 $ sound "bd cp bd cp"
+d2 $ sound "hc hc hc hc hc "
+d3 $ sound "arpy arpy arpy"
+d1 $ sound "bd ~ bd cp"
+d1 $ sound "bd ~ ~ cp"
+d1 $ sound "bd hc bd hc"
+d1 $ sound "bd [hc cp] bd hc"
+d1 $ sound "bd [hc cp] [~ bd] hc"
+d1 $ sound "bd [hc [cp cp]] [~ bd] hc"
+d1 $ sound "bd bd"
+d1 $ sound "bd*2"
+d1 $ sound "bd*2 cp*4"
+d1 $ sound "[bd bd] [cp cp cp cp]"
+d1 $ sound "bd*2 [cp*2 hc*4]"
+d1 $ sound "bd/2"
+d1 $ sound "[bd [cp hc]*2]/2 [bd [hc bd]/2]*2"
+d1 $ sound "[bd*4 [cp/2 hc]*4]/4 [bd [hc*3 bd]/2]*2"
+d1 $ sound "[bd*2, cp hc cp hc*2]"
+d1 $ sound "[bd*3, hc*5]"
+d1 $ sound "[bd*3, hc*5, [~ cp]*2]]"
+d1 $ sound "[bd cp, bass glitch hc]"
+d1 $ sound "{bd cp, bass glitch hc}"
+d1 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ slow 2 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ slow 4 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ slow 0.5 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ fast 2 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ fast 0.5 $ sound "bd*2 [cp*2 hc*3]"
+d1 $ rev $ sound "bd*2 [cp*2 hc*3]"
+d1 $ sound "[hc*3 cp*2] bd*2"
+d1 $ every 4 (0.25 ~>) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ every 4 (0.25 <~) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ iter 4 $ sound "bd cp bass hc"
+d1 $ jux (0.25 <~) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ jux (rev) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ jux (iter 8) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ jux (slow 1.5) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ every 4 (rev) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ every 4 (fast 2) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ every 4 (slow 2) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ whenmod 8 6 (fast 2) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ whenmod 5 2 (fast 2) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ sometimesBy 0.2 (rev) $ sound "bd*2 [cp*2 hc*3]"
+-- sometimes = sometimesBy 0.2
+-- often = sometimesBy 0.75
+-- rarely = sometimesBy 0.25
+-- almostNever = sometimesBy 0.1
+-- almostAlways = sometimesBy 0.9
+d1 $ often (rev) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ sometimesBy 0.75 (rev) $ sound "bd*2 [cp*2 hc*3]"
+d1 $ rev $ slow 2 $ sound "bd*2 [cp*2 hc*3]"
+
+-- control + enter
+d1
+    $ rev
+    $ slow 2
+    $ sound "bd*2 [cp*2 hc*3]"
+
+d1
+    $ sometimesBy 0.4 (rev)
+    $ whenmod 8 6 (slow 2)
+    $ sound "bd*2 [cp*2 hc*3]"
+
+d1
+    $ sometimesBy 0.2 (rev)
+    $ whenmod 8 6 (slow 2)
+    $ every 4 (0.125 <~)
+    $ often (jux (iter 4))
+    $ sound "bd*2 [cp*2 hc*3]"
+
+-- effect
+-- gain
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain 1.5
+
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+
+-- pan
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+
+-- delay, delaytime
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+
+-- delayfeedback
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+    # delayfeedback "0.7"
+
+-- lpf: lowpass filter
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+    # delayfeedback "0.7"
+    # lpf "800 8000 800 15000"
+
+-- resonance
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+    # delayfeedback "0.7"
+    # lpf "800 8000 800 15000"
+    # resonance "0.1 0.3 0.2 0.4"
+
+-- shape(overdrive)
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+    # delayfeedback "0.7"
+    # lpf "800 8000 800 15000"
+    # resonance "0.1 0.3 0.2 0.4"
+    # shape "0.7"
+
+-- vowel(a, i, u, e, o)
+d1
+    $ sound "bd*2 [cp*2 hc*3]"
+    # gain "1.5 [1.0 0.8]"
+    # pan "0.5 [0.1 0.9]"
+    # delay "0.5"
+    # delaytime "0.125"
+    # delayfeedback "0.7"
+    # lpf "800 8000 800 15000"
+    # resonance "0.1 0.3 0.2 0.4"
+    # shape "0.7"
+    # vowel "u a i e"
+
+-- algoryhthmic pattern
+-- euclidean algoryhthm sequence by Godfried Toussaint
+-- [1 1 1 0 0 0 0 0]
+-- [1 0 1 0 1 0 0 0]
+-- [1 0 0 1 0 0 1 0]
+d1 $ sound "bd(3, 8)"
+-- [1 1 1 1 1 0 0 0]
+-- [1 0 1 0 1 0 1 1]
+-- [1 0 1 1 0 1 1 0]
+d1 $ sound "bd(5, 8)"
+d1 $ sound "bd(3, 8, 0)"
+d1 $ sound "bd(3, 8, 1)"
+d1 $ sound "bd(3, 8, 2)"
+d1 $ sound "bd(3, 8, 3)"
+d1 $ sound "[bd(3, 8), cp(3, 8, 3), tabla2(5, 8, 4)]"
+
+-- random
+-- irand: <integer> (irand 12) = 0 ~ 11
+-- rand: <float> (rand) = 0.0 ~ 1.0
+d1
+    $ sound "[bd(3, 8), cp(3, 8, 3), tabla2(5, 8, 4)]"
+    # n (irand 12)
+    # pan (rand)
+
+-- range
+d1
+    $ sound "[bd(3, 8), cp(3, 8, 3), tabla2(5, 8, 4)]"
+    # n (irand 12)
+    # pan (rand)
+    # lpf (range 100 8000 $ rand)
+
+-- up, choose
+d1
+    $ sound "[bd(3, 8), cp(3, 8, 3), tabla2(5, 8, 4)]"
+    # n (irand 12)
+    # pan (rand)
+    # lpf (range 100 8000 $ rand)
+    # up (choose [0, 4, 5, 7])
+
+d1
+    $ jux ((choose[0.125, 0.25, 0.5]) <~)
+    $ sound "bd(3, 8), cp(3, 8, 3), tabla2(5, 8, 4)]"
+    # pan (rand)
+    # n (irand 12)
+    # up (choose [0, 4, 5, 7])
+    # lpf (range 100 12000 $ rand)
+    # resonance (choose [0.1, 0.1, 0.1, 0.3])
+    # delay "0.5"
+    # delaytime (choose[0.0625, 0.125, 0.25, 0.5])
+
+-- pattern in variable
+d1
+    $ gain "[1 0 1 0 1 1 0 0]"
+    # sound "bd"
+
+do
+    let
+        pat1 = "[1 0 1 0 1 1 0 0]"
+    d1
+        $ gain pat1 # sound "bd"
+
+do
+    let
+        pat1 = "[1 0 1*2 0 1/2 1 0 0]"
+    d1
+        $ gain pat1 # sound "bd"
+
+do
+    let
+        pat1 = "{1 0 1 0 1/2 1 0 0 1}%8"
+    d1
+        $ gain pat1 # sound "bd"
+
+do
+    let
+        pat1 = "{1 0 1 0 1/2 1 0 0 1}%8"
+        pat2 = "{1 0 0 1 0 1 0 1/2 1 0 0 1/3}%8"
+    d1
+        $ gain pat1 # sound "bd"
+    d2
+        $ gain pat2 # sound "cp"
+
+-- binary pattern
+do
+    let
+        inverse 1 = 0
+        inverse 0 = 1
+        pat1 = "{1 0 0 1 0 1 0 1/2 1 0 0 1/3}%8"
+    d1
+        $ gain pat1 # sound "bd"
+    d2
+        $ gain (inverse <$> pat1) # sound "cp"
+
+do
+    let
+        inverse 1 = 0
+        inverse 0 = 1
+        pat1 = "{1 0 0 1 0 1 0 1/2 1 0 0 1/3}%8"
+    d1
+        $ sometimesBy 0.3 (jux (0.125 ~>))
+        $ whenmod 4 3 (0.25 ~>)
+        $ gain pat1 # sound "bd"
+    d2
+        $ sometimesBy 0.4 (jux (0.125 <~))
+        $ whenmod 3 2 (0.25 <~)
+        $ gain (inverse <$> pat1) # sound "cp"
+
+-- cat
+d1
+    $ cat [
+        sound "ifdrums(5, 8)" # n "{0 1 2 3}%8",
+        sound "bd*2 [cp hc] ~ glitch"
+    ]
+
+d1
+    $ cat [
+        sound "ifdrums(5, 8)" # n "{0 1 2 3}%8",
+        sound "bd*2 [cp hc] ~ glitch",
+        sound "[~ casio*2] [~ hc*4]"
+    ]
+
+-- practice live performance
+-- stack
+-- room, size
+do
+    let
+        pat = "{1 0/2 1 0 1 0 1/2 1 0 0 1/3}%8"
+        inverse 1 = 0
+        inverse 0 = 1
+    d1
+        $ whenmod 16 15 (rev)
+        $ sometimesBy 0.4 (jux (0.125 ~>))
+        $ sometimesBy 0.1 (1.25 <~)
+        $ stack [
+            sound "bd:3*2" # gain "1.7",
+            sound "ifdrums(5, 8)" # n "{0 1 2 3}%8",
+            sound "~ [cp hc] ~ bass",
+            gain pat # sound "glitch" # n (irand 20),
+            gain (inverse <$> pat) # sound "super808" # n (irand 12),
+            sound "superzow(3, 8, {0, 3})"
+                # n ("{0, <4 5>/4, <7 9>/8}" - "{19, 12, 5, 0}" + "<0 4 7 9>/16")
+                # sustain "{0.2 0.05}%8"
+                # gain "0.8"
+        ]
+        # lpf (range 800 18000 $ slow 16 $ sine)
+        # resonance 0.2
+        # delay "0.5"
+        # delaytime (choose [1/2, 1/4])
+        # delayfeedback "0.5"
+        # room "0.2"
+        # size "0.7"
+        # shape "0.5"
+
+hush
